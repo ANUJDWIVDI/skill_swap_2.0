@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGOs</title>
+    <!-- Add Bootstrap CSS link -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom orange and black theme */
+        body {
+            background-color: black;
+            color: orange;
+        }
+        /* Standard size for card images */
+        .card-img-top {
+            height: 200px; /* Adjust the height as needed */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar with Dropdown Menu -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="../static/logo.svg" width="30" height="30" class="d-inline-block align-top" alt="Logo">
+            Skill Swap
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/index" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Menu
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="about.html">About</a>
+                        <a class="dropdown-item" href="contact.html">Contact</a>
+                        <!-- Add more menu items here -->
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- NGOs in Cards -->
+    <div class="container mt-4" style="width: 100%;">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+                <div class="card">
+                    <img src="../static/ngo_logo/aifd.jpg" class="card-img-top" alt="All India Federation of the Deaf">
+                    <div class="card-body">
+                        <h5 class="card-title">ALL INDIA FEDERATION OF THE DEAF</h5>
+                        <a href="/dashboard" class="btn btn-primary">Dashboard</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+                <div class="card">
+                    <img src="../static/ngo_logo/deesha.jpg" class=" card-img-top" alt="Deesha Education Foundation">
+                    <div class="card-body">
+                        <h5 class="card-title">Deesha Education Foundation</h5>
+                        <a href="/dashboard" class="btn btn-primary">Dashboard</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+                <div class="card">
+                    <img src="../static/ngo_logo/bws.png" class="card-img-top" alt="Blind Welfare Society">
+                    <div class="card-body">
+                        <h5 class="card-title">Blind Welfare Society</h5>
+                        <a href="/dashboard" class="btn btn-primary">Dashboard</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JS and jQuery for dropdown functionality -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
