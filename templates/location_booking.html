@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workspace Booking</title>
+    <!-- Add Bootstrap CSS link -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom orange and black theme */
+        body {
+            background-color: black;
+            color: orange;
+        }
+        .container-white {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .btn-primary {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">
+            <img src="../static/logo.svg" width="30" height="30" class="d-inline-block align-top" alt="Logo">
+            Skill Swap
+        </a>
+    </nav>
+
+    <!-- Container for Workspace Booking Form -->
+    <div class="container mt-4 container-white">
+        <div class="row">
+            <div class="col-12">
+                <h3>Workspace Booking</h3>
+                <form id="workspace-booking-form">
+                    <div class="form-group">
+                        <label for="workspace">Choose a Workspace:</label>
+                        <select class="form-control" id="workspace" name="workspace">
+                            <option value="WeWork">WeWork - Locations in MG Road, Koramangala, and Bellary Road</option>
+                            <option value="HSR Layout">HSR Layout - A hub for coworking spaces in the southeastern part of Bangalore</option>
+                            <option value="91 Springboard">91 Springboard - Locations in Koramangala 7th block and 8th block</option>
+                            <option value="BHIVE Workspace HSR Campus">BHIVE Workspace HSR Campus - The world's largest coworking space with 8,000 seats</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="booking-date">Booking Date:</label>
+                        <input type="date" class="form-control" id="booking-date" name="booking-date">
+                    </div>
+                    <div class="form-group">
+                        <label for="booking-time">Booking Time:</label>
+                        <select class="form-control" id="booking-time" name="booking-time">
+                            <option value="9:00 AM">9:00 AM</option>
+                            <option value="10:00 AM">10:00 AM</option>
+                            <option value="11:00 AM">11:00 AM</option>
+                            <option value="2:00 PM">2:00 PM</option>
+                            <option value="3:00 PM">3:00 PM</option>
+                            <option value="4:00 PM">4:00 PM</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-primary" onClick="submitForm()">Submit Booking</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function submitForm() {
+            // Perform any form validation here if needed
+            // For the mock, just show an alert
+            alert("Submission Successful , Your booking will be confirmed Once your Peer Accepts !!");
+        }
+    </script>
+</body>
+</html>

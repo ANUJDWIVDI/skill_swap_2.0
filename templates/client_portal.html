@@ -16,12 +16,18 @@
             margin: 10px;
         }
         .container-white {
-            background-color: white; /* Set the container background to white */
+            background-color: white;
             padding: 20px;
             border-radius: 10px;
         }
         .btn-primary {
-            background-color: black; /* Set button background to black */
+            background-color: black;
+        }
+        .chat-box {
+            width: 100%; /* Increase chat box width */
+        }
+        .chat-box p {
+            font-size: 18px; /* Increase text size */
         }
     </style>
 </head>
@@ -34,16 +40,36 @@
         </a>
     </nav>
 
+    <!-- Chat Box -->
+    <div class="container mt-4 container-white">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Chat Box</h5>
+                        <div id="chat-box" class="chat-box">
+                            <!-- Chat messages will appear here -->
+                        </div>
+                        <input type="text" id="chat-input" placeholder="Type a message">
+                        <button class="btn btn-primary" onClick="sendMessage()">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Container for Cards -->
     <div class="container mt-4 container-white">
         <div class="row">
             <!-- Card 1: Location Booking -->
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="card">
+                    <a href="location_booking.html">
+                        <img src="../static/location_booking_image.png" class="card-img-top" alt="Location Booking">
+                    </a>
                     <div class="card-body">
                         <h5 class="card-title">Location Booking</h5>
                         <p class="card-text">Book your preferred location in Beehive for meetings and events.</p>
-                        <a href="beehive_booking.html" class="btn btn-primary">Book Now</a>
                     </div>
                 </div>
             </div>
@@ -51,73 +77,54 @@
             <!-- Card 2: Online Meeting Scheduler -->
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="card">
+                    <a href="google_meet_scheduler.html">
+                        <img src="../static/meeting_scheduler_image.png" class="card-img-top" alt="Online Meeting Scheduler">
+                    </a>
                     <div class="card-body">
                         <h5 class="card-title">Online Meeting Scheduler</h5>
-                        <p class="card-text">Schedule online meetings with Zoom.</p>
-                        <a href="zoom_scheduler.html" class="btn btn-primary">Schedule Meeting</a>
+                        <p class="card-text">Schedule online meetings with Google Meet.</p>
                     </div>
                 </div>
             </div>
 
-           <div class="col-12 col-md-6 col-lg-4">
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">Coursera Course Search & Chat</h5>
-            <p class="card-text">Search for Coursera courses and send links in the chat.</p>
-            <iframe src="https://www.coursera.org/search?embed=true" width="100%" height="400px"></iframe>
-            <button class="btn btn-primary" onClick="copyLink()">Copy Link</button>
-        </div>
-    </div>
-</div>
-
-        </div>
-    </div>
-
-    <!-- Voice Chat Box (Sample) -->
-    <div class="container mt-4 container-white">
-        <div class="row">
-            <div class="col-12">
+            <!-- Card 3: Coursera Course Search & Chat -->
+            <div class="col-12 col-md-6 col-lg-4">
                 <div class="card">
+                    <a href="coursera_course_chat.html">
+                        <img src="../static/coursera_image.png" class="card-img-top" alt="Coursera Course Search & Chat">
+                    </a>
                     <div class="card-body">
-                        <h5 class="card-title">Voice Chat Box</h5>
-                        <!-- You can integrate a voice chat solution here. -->
-                        <p class="card-text">Voice chat for code discussions.</p>
+                        <h5 class="card-title">Coursera Course Search & Chat</h5>
+                        <p class="card-text">Search for Coursera courses and send links in the chat.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-
-
+    <!-- JavaScript to Handle Chat and Other Functions -->
     <script>
+        // Function to send a chat message (mock)
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const message = input.value;
 
+            if (message) {
+                const chatBox = document.getElementById('chat-box');
+                const newMessage = document.createElement('p');
+                newMessage.textContent = `You: ${message}`;
+                chatBox.appendChild(newMessage);
 
-        function copyLink() {
-    var link = document.querySelector('iframe').src;
-    navigator.clipboard.writeText(link);
-}
+                // Mock reply
+                setTimeout(() => {
+                    const reply = document.createElement('p');
+                    reply.textContent = `Bot: Mock reply to "${message}"`;
+                    chatBox.appendChild(reply);
+                }, 1000);
 
-
-        const courseLink = "https://www.coursera.org/your-course-link"; // Replace with your Coursera course link
-
-        const copyLinkButton = document.createElement("button");
-        copyLinkButton.textContent = "Copy Link";
-        copyLinkButton.classList.add("btn", "btn-primary");
-        copyLinkButton.style.marginTop = "10px";
-
-        copyLinkButton.addEventListener("click", () => {
-            const dummy = document.createElement("input");
-            document.body.appendChild(dummy);
-            dummy.value = courseLink;
-            dummy.select();
-            document.execCommand("copy");
-            document.body.removeChild(dummy);
-            alert("Course link copied to clipboard!");
-        });
-
-        document.body.appendChild(copyLinkButton);
+                input.value = '';
+            }
+        }
     </script>
-
 </body>
 </html>
