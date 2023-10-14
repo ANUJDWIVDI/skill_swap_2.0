@@ -60,7 +60,13 @@ def client_portal():
 def choice():
     return render_template('choices_to_learn.html')
 
+@app.route('/location_booking')
+def location_booking():
+    return render_template('location_booking.html')
 
+@app.route('/google_meet_scheduler')
+def google_meet_scheduler():
+    return render_template('google_meet_scheduler.html')
 
 
 
