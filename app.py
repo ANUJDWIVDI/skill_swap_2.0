@@ -66,10 +66,12 @@ def choice():
 
 
 @app.route('/save_form_c', methods=['POST','GET'])
-def save_form():
+def save_form_c():
     # Get form data
     semester = request.form.get('semester')
+    print(semester)
     courses = request.form.getlist('courses')
+    print(courses)
 
     # Create an Excel workbook
     wb = openpyxl.Workbook()
@@ -87,10 +89,12 @@ def save_form():
 
 
 @app.route('/save_form_l', methods=['POST','GET'])
-def save_forml():
+def save_form_l():
     # Get form data
     semester = request.form.get('semester')
+    print(semester)
     courses = request.form.getlist('courses')
+    print(courses)
 
     # Create an Excel workbook
     wb = openpyxl.Workbook()
@@ -104,6 +108,8 @@ def save_forml():
     wb.save('form2_responses.xlsx')
 
     return redirect(url_for('dashboard'))
+
+
 
 
 
