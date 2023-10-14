@@ -1,10 +1,11 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
+import openpyxl
 
 app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return render_template('index.html')
+    return render_template('home.html')
 
 @app.route('/index')
 def index():
@@ -58,6 +59,52 @@ def client_portal():
 @app.route('/choices_to_learn')
 def choice():
     return render_template('choices_to_learn.html')
+
+
+
+
+
+
+@app.route('/save_form_c', methods=['POST','GET'])
+def save_form():
+    # Get form data
+    semester = request.form.get('semester')
+    courses = request.form.getlist('courses')
+
+    # Create an Excel workbook
+    wb = openpyxl.Workbook()
+    ws = wb.active
+    ws.append(["Semester", "Selected Courses"])
+
+    # Write form data to the Excel file
+    ws.append([semester, ", ".join(courses)])
+
+    # Save the workbook
+    wb.save('form1_responses.xlsx')
+
+    return redirect(url_for('choice'))
+
+
+
+@app.route('/save_form_l', methods=['POST','GET'])
+def save_forml():
+    # Get form data
+    semester = request.form.get('semester')
+    courses = request.form.getlist('courses')
+
+    # Create an Excel workbook
+    wb = openpyxl.Workbook()
+    ws = wb.active
+    ws.append(["Semester", "Selected Courses"])
+
+    # Write form data to the Excel file
+    ws.append([semester, ", ".join(courses)])
+
+    # Save the workbook
+    wb.save('form2_responses.xlsx')
+
+    return redirect(url_for('dashboard'))
+
 
 
 if __name__ == '__main__':
