@@ -91,53 +91,138 @@
 
  <!-- JavaScript for College Filtering -->
 <script>
-    const profiles = [
-        {
-            name: "Anuj Dwivedi",
-            college: "CMR Institute of Technology",
-            skills: "Web Development, JavaScript, HTML, CSS",
-        },
-        {
-            name: "Neha Amin",
-            college: "Ramaiah Institute of Technology",
-            skills: "Graphic Design, Adobe Illustrator, Photoshop",
-        },
-        {
-            name: "Babu Bhaia",
-            college: "RV College of Engineering",
-            skills: "Graphic Design, Adobe Illustrator, Photoshop",
-        },
-        {
-            name: "Rameshhh",
-            college: "ACS College of Engineering",
-            skills: "Graphic Design, Adobe Illustrator, Photoshop",
-        },
-        {
-            name: "Dhinchak Pooja",
-            college: "The Oxford College of Engineering",
-            skills: "Graphic Design, Adobe Illustrator, Photoshop",
-        },
-        {
-            name: "RAJ UTSO",
-            college: "CMR Institute of Technology",
-            skills: "Mobile App Development, Kotlin, Java",
-        },
-        {
-            name: "Gudu Bhia",
-            college: "Ramaiah Institute of Technology",
-            skills: "Web Development, JavaScript, HTML, CSS",
-        },
-        {
-            name: "Gogo Sturo",
-            college: "RV College of Engineering",
-            skills: "Graphic Design, Adobe Illustrator, Photoshop",
-        },
-        {
-            name: "Ajayyy",
-            college: "ACS College of Engineering",
-            skills: "Mobile App Development, Kotlin, Java",
-        },
-    ];
+ const subjects = {
+    "1": [
+        "Mathematics-I for CSE Stream",
+        "Applied Physics",
+        "Principles of Programming Using C",
+        "Engineering Science Course-I",
+        "Emerging Technology Course-I",
+        "Communicative English",
+        "Samskrutika Kannada/ Balake Kannada",
+        "Indian Constitution",
+        "Innovation and Design Thinking",
+        "Scientific Foundations of Health",
+    ],
+    "2": [
+        "Mathematics-II for CSE Stream",
+        "Applied Chemistry for CSE Stream",
+        "Computer-Aided Engineering Drawing",
+        "Engineering Science Course-II",
+        "Programming Language Course-II",
+        "Emerging Technology Course-II",
+        "Professional Writing Skills in English",
+        "Communicative English",
+        "Indian Constitution",
+        "Samskrutika Kannada/ Balake Kannada",
+        "Scientific Foundations of Health",
+    ],
+    "3": [
+        "Mathematics for Computer Science",
+        "Digital Design & Computer Organization",
+        "Operating Systems",
+        "Data Structures and Applications",
+        "Data Structures Lab",
+        "ESC/ETC/PLC",
+        "Social Connect and Responsibility",
+        "Ability Enhancement Course/Skill Enhancement Course - I",
+        "National Service Scheme (NSS)",
+        "Physical Education (PE) (Sports and Athletics)",
+        "Yoga",
+    ],
+    "4": [
+        "Analysis & Design of Algorithms",
+        "Microcontrollers",
+        "Database Management Systems",
+        "Analysis & Design of Algorithms Lab",
+        "Ability Enhancement Course/Skill Enhancement Course - IV",
+        "Biology For Engineers",
+        "Universal Human Values Course",
+        "National Service Scheme (NSS)",
+        "Physical Education (PE) (Sports and Athletics)",
+        "Yoga",
+    ],
+    "5": [
+        "Software Engineering & Project Management",
+        "Computer Networks",
+        "Theory of Computation",
+        "Web Technology Lab",
+        "Professional Elective Course",
+        "Mini Project",
+        "Research Methodology and IPR",
+        "Environmental Studies",
+        "National Service Scheme (NSS)",
+        "Physical Education (PE) (Sports and Athletics)",
+    ],
+    "6": [
+        "Cloud Computing (Open Stack / Google)",
+        "Machine Learning",
+        "Professional Elective Course",
+        "Open Elective Course",
+        "Project Phase I",
+        "Machine Learning Lab",
+        "Ability Enhancement Course/Skill Development Course V",
+        "National Service Scheme (NSS)",
+        "Yoga",
+        "Physical Education (PE) (Sports and Athletics)",
+    ],
+    "7": [
+        "Internet of Things",
+        "Parallel Computing",
+        "Cryptography & Network Security",
+        "Professional Elective Course",
+        "Open Elective Course",
+        "Major Project Phase II",
+        "Deep Learning",
+        "Big Data Analytics",
+        "Enterprise Data Warehousing",
+        "Intro to DBMS",
+        "Natural Language Processing",
+    ],
+    "8": ["Professional Elective through NPTEL", "Internship", "Open Elective through NPTEL"],
+};
+const profiles = [
+    {
+        name: "John Doe",
+        college: "CMR Institute of Technology",
+        skills: generateRandomSkills(),
+    },
+    {
+        name: "Alice Smith",
+        college: "Ramaiah Institute of Technology",
+        skills: generateRandomSkills(),
+    },
+    {
+        name: "David Johnson",
+        college: "RV College of Engineering",
+        skills: generateRandomSkills(),
+    },
+    {
+        name: "Mary Brown",
+        college: "ACS College of Engineering",
+        skills: generateRandomSkills(),
+    },
+    {
+        name: "Michael Lee",
+        college: "The Oxford College of Engineering",
+        skills: generateRandomSkills(),
+    },
+];
+
+
+function generateRandomSkills() {
+    const randomSkills = [];
+    for (let i = 1; i <= 3; i++) {
+        const subjectSet = subjects[i.toString()];
+        if (subjectSet) {
+            const randomIndex = Math.floor(Math.random() * subjectSet.length);
+            randomSkills.push(subjectSet[randomIndex]);
+        }
+    }
+    return randomSkills.join(", ");
+}
+
+console.log(profiles);
 
     const collegeFilter = document.getElementById("collegeFilter");
     const profileList = document.getElementById("profileList");
